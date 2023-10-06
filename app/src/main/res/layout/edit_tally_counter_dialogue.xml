@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/deepBlue"
+    android:foreground="@drawable/border_shape"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="340dp"
+        android:layout_height="400dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_shape"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:paddingBottom="4dp"
+                android:text="Name: "
+                android:textColor="@color/ice" />
+
+            <EditText
+                android:id="@+id/tallyCounterDialogue_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Enter Counter Name"
+                android:inputType="text"
+                android:textColor="@color/ice"
+                android:textColorHint="@color/deepBlue3"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:paddingBottom="4dp"
+                android:text="Count: "
+                android:textColor="@color/ice" />
+
+            <EditText
+                android:id="@+id/tallyCounterDialogue_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Enter Count"
+                android:inputType="number"
+                android:text="0"
+                android:textColor="@color/ice"
+                android:textColorHint="@color/deepBlue3"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="Primary color:"
+                android:textColor="@color/ice"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/todoListCreateDialogue_colorPrimary"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                app:cardBackgroundColor="@color/deepBlue3"
+                app:cardCornerRadius="13dp"
+                app:cardElevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="Secondary color:"
+                android:textColor="@color/ice"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/todoListCreateDialogue_colorSecondary"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                app:cardBackgroundColor="@color/ice"
+                app:cardCornerRadius="13dp"
+                app:cardElevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/tallyCounterDialogue_lockButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/poppins"
+            android:text="Lock Counter"
+            android:textColor="@color/ice"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/tallyCounterDialogue_discardButton"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="28dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins"
+                android:text="Discard"
+                android:textColor="@color/ice"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/tallyCounterDialogue_saveButton"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="28dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins"
+                android:text="Save"
+                android:textColor="@color/ice"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/tallyCounterDialogue_closeButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="28dp"
+            android:fontFamily="@font/poppins"
+            android:text="Close"
+            android:visibility="gone"
+            android:textColor="@color/ice"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyPages" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/deepBlue3</item>
+        <item name="colorPrimaryDark">@color/deepBlue2</item>
+        <item name="colorAccent">@color/ice</item>
+    </style>
+    <style name="Theme.MyPages" parent="Base.Theme.MyPages" />
+
+    <style name="actionBarTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/deepBlue3</item>
+        <item name="colorPrimaryDark">@color/deepBlue2</item>
+        <item name="colorAccent">@color/ice</item>
+    </style>
+
+</resources>

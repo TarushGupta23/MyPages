@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_linearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/deepBlue"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/main_linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/main_createButton"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_margin="20dp"
+            android:clickable="true"
+            android:contextClickable="false"
+            app:cardBackgroundColor="@color/deepBlue3"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    app:srcCompat="@drawable/baseline_add_box_24" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Create New"
+                    android:textColor="@color/ice"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/main_folderButton"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_margin="20dp"
+            android:background="@color/deepBlue3"
+            android:clickable="true"
+            android:contextClickable="false"
+            app:cardBackgroundColor="@color/deepBlue3"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    app:srcCompat="@drawable/baseline_folder_24" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Open Folder"
+                    android:textColor="@color/ice"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/main_signOutButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/deepBlue3"
+            android:fontFamily="@font/poppins"
+            android:shadowColor="@color/darkGrey"
+            android:text="Sign Out"
+            android:textColor="@color/ice"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:rippleColor="@color/deepBlue2" />
+
+        <Button
+            android:id="@+id/main_helpButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/deepBlue3"
+            android:fontFamily="@font/poppins"
+            android:shadowColor="@color/darkGrey"
+            android:text="Help"
+            android:textColor="@color/ice"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:rippleColor="@color/deepBlue2" />
+
+        <Button
+            android:id="@+id/main_settingsButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/deepBlue3"
+            android:fontFamily="@font/poppins"
+            android:shadowColor="@color/darkGrey"
+            android:text="Settings"
+            android:textColor="@color/ice"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:rippleColor="@color/deepBlue2" />
+    </LinearLayout>
+
+</LinearLayout>

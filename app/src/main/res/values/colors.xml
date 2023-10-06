@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="skyBlue">#32A3FD</color>
+    <color name="coral">#F86E61</color>
+    <color name="mint">#5DC562</color>
+    <color name="softPlate">#FFEDED</color>
+    <color name="paleGrey">#F5F5F5</color>
+    <color name="darkGrey">#333333</color>
+    <color name="teal">#0DAC51</color>
+    <color name="darkGreen">#018C3C</color>
+
+    <color name="deepBlue">#182834</color>
+    <color name="deepBlue2">#304351</color>
+    <color name="deepBlue3">#385362</color>
+    <color name="buttonBlue">#67A3AF</color>
+    <color name="ice">#BADDE2</color>
+
+</resources>

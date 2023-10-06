@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="600dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/deepBlue"
+            android:foreground="@drawable/border_shape"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="4dp"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center_vertical"
+                    android:text="Task Name "
+                    android:textColor="@color/ice" />
+
+                <EditText
+                    android:id="@+id/todoListCreateDialogue_taskName"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textColor="@color/ice" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="4dp"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center_vertical"
+                    android:text="Description"
+                    android:textColor="@color/ice" />
+
+                <EditText
+                    android:id="@+id/todoListCreateDialogue_taskDescription"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="Optional"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/ice"
+                    android:textColorHint="@color/deepBlue3" />
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginVertical="5dp">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Primary color:"
+                    android:textColor="@color/ice"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/todoListCreateDialogue_colorPrimary"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    app:cardBackgroundColor="@color/deepBlue3"
+                    app:cardCornerRadius="13dp"
+                    app:cardElevation="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0">
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginVertical="5dp">
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Secondary color:"
+                    android:textColor="@color/ice"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/todoListCreateDialogue_colorSecondary"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    app:cardBackgroundColor="@color/ice"
+                    app:cardCornerRadius="13dp"
+                    app:cardElevation="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="5dp"
+                android:background="#19FFFFFF"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="65dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="2dp"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center_vertical"
+                        android:text="Deadline"
+                        android:textColor="@color/ice" />
+
+                    <EditText
+                        android:id="@+id/todoListCreateDialogue_deadlineDate"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="dd/mm/yyyy"
+                        android:inputType="date"
+                        android:textColor="@color/ice"
+                        android:textColorHint="@color/deepBlue3" />
+
+                    <EditText
+                        android:id="@+id/todoListCreateDialogue_deadlineTime"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="HH:MM"
+                        android:inputType="time"
+                        android:textColor="@color/ice"
+                        android:textColorHint="@color/deepBlue3" />
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/todoListCreateDialogue_enableNotification"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:fontFamily="@font/poppins"
+                        android:text="Notify"
+                        android:textColor="@color/ice"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/todoListCreateDialogue_notifyBefore"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="32dp"
+                        android:ems="10"
+                        android:hint="__ min before"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textColor="@color/ice"
+                        android:textColorHint="@color/deepBlue3"
+                        android:visibility="invisible"
+                        app:layout_constraintEnd_toStartOf="@+id/todoListCreateDialogue_notificationExpand"
+                        app:layout_constraintStart_toEndOf="@+id/todoListCreateDialogue_enableNotification"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/todoListCreateDialogue_notificationExpand"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="10dp"
+                        android:rotation="-90"
+                        android:visibility="invisible"
+                        app:cardCornerRadius="30dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/poppins"
+                            android:text=">"
+                            android:textColor="@color/deepBlue3"
+                            android:textSize="30sp"
+                            android:textStyle="bold"
+                            android:translationX="1dp"
+                            android:translationY="-1dp" />
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <RadioGroup
+                    android:id="@+id/todoListCreateDialogue_notifyRG"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/todoListCreateDialogue_notifyRG_minute"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:fontFamily="@font/poppins"
+                        android:scaleX="0.9"
+                        android:scaleY="0.9"
+                        android:text="Minutes"
+                        android:textColor="@color/ice"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/todoListCreateDialogue_notifyRG_hour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:fontFamily="@font/poppins"
+                        android:scaleX="0.9"
+                        android:scaleY="0.9"
+                        android:text="Hours"
+                        android:textColor="@color/ice"
+                        android:textSize="14sp" />
+                </RadioGroup>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/todoListCreateDialogue_enableRepeat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:fontFamily="@font/poppins"
+                        android:text="Repeat"
+                        android:textColor="@color/ice"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/todoListCreateDialogue_repeatExpand"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="10dp"
+                        android:rotation="-90"
+                        android:visibility="invisible"
+                        app:cardCornerRadius="30dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/textView19"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/poppins"
+                            android:text=">"
+                            android:textColor="@color/deepBlue3"
+                            android:textSize="30sp"
+                            android:textStyle="bold"
+                            android:translationX="1dp"
+                            android:translationY="-1dp" />
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <RadioGroup
+                    android:id="@+id/todoListCreateDialogue_repeatRG"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/todoListCreateDialogue_repeatRG_daily"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:fontFamily="@font/poppins"
+                        android:scaleX="0.9"
+                        android:scaleY="0.9"
+                        android:text="Every Day"
+                        android:textColor="@color/ice"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/todoListCreateDialogue_repeatRG_weekly"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:scaleX="0.9"
+                        android:scaleY="0.9"
+                        android:text="Every Week"
+                        android:textColor="@color/ice"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/todoListCreateDialogue_repeatRG_monthly"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:scaleX="0.9"
+                        android:scaleY="0.9"
+                        android:text="Every Month"
+                        android:textColor="@color/ice"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/todoListCreateDialogue_repeatRG_yearly"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:scaleX="0.9"
+                        android:scaleY="0.9"
+                        android:text="Every Year"
+                        android:textColor="@color/ice"
+                        android:textSize="14sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/todoListCreateDialogue_editBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/todoListCreateDialogue_editAttachments"
+                    android:layout_width="135dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="attachments"
+                    android:textColor="@color/ice"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/todoListCreateDialogue_editSubtask"
+                    android:layout_width="135dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="sub tasks"
+                    android:textColor="@color/ice"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/todoListCreateDialogue_save"
+                    android:layout_width="110dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="25dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Save"
+                    android:textColor="@color/ice"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/todoListCreateDialogue_discard"
+                    android:layout_width="110dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Discard"
+                    android:textColor="@color/ice"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <Button
+                    android:id="@+id/todoListCreateDialogue_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="28dp"
+                    android:fontFamily="@font/poppins"
+                    android:visibility="gone"
+                    android:text="Close"
+                    android:textColor="@color/ice"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

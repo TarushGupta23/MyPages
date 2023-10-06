@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/menu_action_mic"
+        android:icon="@drawable/baseline_mic_24"
+        android:title="Dictate"
+        android:orderInCategory="100"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menu_action_add"
+        android:icon="@drawable/baseline_add_box_24"
+        android:title="Add"
+        android:orderInCategory="100"
+        app:showAsAction="always"/>
+</menu>

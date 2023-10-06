@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="200dp"
+    android:background="@color/deepBlue">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border_shape"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <EditText
+            android:id="@+id/dialogueTextInput_editText"
+            android:layout_width="220dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="40dp"
+            android:background="#80304351"
+            android:ems="10"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:inputType="text"
+            android:textColor="@color/ice"
+            android:textColorHint="@color/deepBlue3" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/dialogueTextInput_buttonOk"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_margin="30dp"
+                android:backgroundTint="@color/deepBlue3"
+                android:fontFamily="@font/poppins"
+                android:text="Ok"
+                android:textColor="@color/ice"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/dialogueTextInput_buttonCancel"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_margin="30dp"
+                android:backgroundTint="@color/deepBlue3"
+                android:fontFamily="@font/poppins"
+                android:text="Cancel"
+                android:textColor="@color/ice"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
