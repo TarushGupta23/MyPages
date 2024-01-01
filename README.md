@@ -55,7 +55,7 @@ Unleash your creativity with a simple painting tool.
 
 ## Screenshots 📸
 
-<img align="center" alt="Loading Screenshots..." width="70%" src="https://github.com/TarushGupta23/storage/blob/main/parkingManagementSystem_slider.gif" align="center">
+- no screenshots yet -
 
 ## Structure
 
