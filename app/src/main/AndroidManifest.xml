@@ -13,12 +13,20 @@
         android:theme="@style/Theme.MyPages"
         tools:targetApi="31">
         <activity
+            android:name=".notes.NotesEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".notes.NotesMainActivity"
+            android:exported="false"
+            android:parentActivityName=".selectCreateActivity"
+            android:theme="@style/actionBarTheme" />
+        <activity
             android:name=".todoList.TodoList_VoiceCreation"
             android:exported="false" />
         <activity
             android:name=".todoList.TodoListMainActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".selectCreateActivity"
             android:theme="@style/actionBarTheme" />
         <activity
             android:name=".MainActivity"
@@ -41,9 +49,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.shortcuts"
-                android:resource="@xml/shortcuts"/>
+                android:resource="@xml/shortcuts" />
         </activity>
 
         <meta-data
