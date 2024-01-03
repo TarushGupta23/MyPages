@@ -1,5 +1,5 @@
 # MyPages Application
-<img align="right" alt="Loading Screenshots..." width="5%" height="5%" src="https://raw.githubusercontent.com/TarushGupta23/storage/main/myPagesIcon.png?token=GHSAT0AAAAAACIOGP7BCBOYQHRAM2DBEA6IZMPBOPQ" align="right">
+<img align="right" alt="Loading Screenshots..." width="5%" height="5%" src="https://raw.githubusercontent.com/TarushGupta23/storage/main/myPagesIcon.png?token=GHSAT0AAAAAACIOGP7B7JFUSRBAPB6XCDMAZMTBXZQ" align="right">
 
 ## Overview
 
@@ -55,7 +55,7 @@ Unleash your creativity with a simple painting tool.
 
 ## Screenshots 📸
 
-<img align="center" alt="Loading Screenshots..." width="70%" src="https://github.com/TarushGupta23/storage/blob/main/parkingManagementSystem_slider.gif" align="center">
+- no screenshots yet -
 
 ## Structure
 
