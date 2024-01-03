@@ -8,11 +8,12 @@
     tools:context=".notes.NotesEditActivity">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,17 +21,17 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editTextText2"
+                android:id="@+id/editText_noteHeading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:ems="10"
+                android:hint="Heading"
                 android:inputType="text"
                 android:text="Name"
                 android:textColor="@color/ice" />
 
             <EditText
-                android:id="@+id/editTextTextMultiLine2"
+                android:id="@+id/editText_noteBody"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
@@ -41,9 +42,10 @@
                 android:text="This is multiline note i worked for"
                 android:textColor="@color/ice" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+            <!--            <androidx.recyclerview.widget.RecyclerView-->
+            <!--                android:id="@+id/recyclerView_noteImages"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent" />-->
         </LinearLayout>
     </ScrollView>
 

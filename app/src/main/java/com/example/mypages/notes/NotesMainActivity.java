@@ -83,10 +83,11 @@ public class NotesMainActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.menu_action_add) {
             DatabaseReference newSlot = databaseRef.push();
-            newSlot.setValue(new Model_Note(new Date(), newSlot.getKey()));
+            Model_Note note = new Model_Note(new Date(), newSlot.getKey());
+            newSlot.setValue(note);
 
             Intent i = new Intent(this, NotesEditActivity.class);
-            i.putExtra("noteID", newSlot.getKey());
+            i.putExtra("note", note);
             startActivity(i);
             return true;
         }

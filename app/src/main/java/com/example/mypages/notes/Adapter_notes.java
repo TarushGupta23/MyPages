@@ -3,9 +3,12 @@ package com.example.mypages.notes;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mypages.MainActivity;
 import com.example.mypages.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -74,7 +78,13 @@ public class Adapter_notes extends RecyclerView.Adapter<Adapter_notes.ViewHolder
                 }
             });
             noteCard.setOnClickListener(view -> {
-                Toast.makeText(context, item.getNoteHeading(), Toast.LENGTH_SHORT).show();
+                if (item.isLocked()) {
+                    showPasswordDialog(item);
+                } else {
+                    Intent i = new Intent(context, NotesEditActivity.class);
+                    i.putExtra("note", item);
+                    context.startActivity(i);
+                }
             });
         }
     }
@@ -91,5 +101,35 @@ public class Adapter_notes extends RecyclerView.Adapter<Adapter_notes.ViewHolder
                 }).setNegativeButton("No", (dialogInterface, i) -> {
                     dialogInterface.dismiss();
                 }).create().show();
+    }
+
+    public void showPasswordDialog(Model_Note item) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        View v = LayoutInflater.from(context).inflate(R.layout.text_input, null);
+
+        Button ok, cancel;
+        EditText password = v.findViewById(R.id.dialogueTextInput_editText);
+
+        builder.setView(v);
+        AlertDialog dialog = builder.create();
+
+        ok = v.findViewById(R.id.dialogueTextInput_buttonOk);
+        cancel = v.findViewById(R.id.dialogueTextInput_buttonCancel);
+
+        password.setHint("Enter Password");
+        ok.setOnClickListener(view -> {
+            String input = password.getText().toString();
+            if (input.equals(item.getPassword())) {
+                Intent i = new Intent(context, NotesEditActivity.class);
+                i.putExtra("noteID", item.getKey());
+                context.startActivity(i);
+            } else {
+                Toast.makeText(context, "Incorrect Password", Toast.LENGTH_SHORT).show();
+            }
+        });
+        cancel.setOnClickListener(view -> {
+            dialog.dismiss();
+        });
+        dialog.show();
     }
 }
