@@ -114,6 +114,7 @@ public class NotesEditActivity extends AppCompatActivity {
             if (!pwd.equals("")) {
                 databaseReference.child("password").setValue(pwd);
                 databaseReference.child("isLocked").setValue(true);
+                noteItem.setLocked(true);
                 dialog.dismiss();
                 if (!changesSaved) {
                     showSaveChangesDialog();
@@ -139,8 +140,16 @@ public class NotesEditActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Save Changes??")
                 .setPositiveButton("Save", (dialog, id) -> {
-                    if (noteHeading.getText().toString().equals("")) { noteItem.setNoteHeading("New Note"); }
-                    if (noteBody.getText().toString().equals("")) { noteItem.setNoteBody(Model_Note.EMPTY_STRING); }
+                    if (noteHeading.getText().toString().equals("")) {
+                        noteItem.setNoteHeading("New Note");
+                    } else {
+                        noteItem.setNoteHeading(noteHeading.getText().toString());
+                    }
+                    if (noteBody.getText().toString().equals("")) {
+                        noteItem.setNoteBody(Model_Note.EMPTY_STRING);
+                    } else {
+                        noteItem.setNoteBody(noteBody.getText().toString());
+                    }
 
                     if (noteItem.isNew()) {
                         databaseReference.setValue(null);

@@ -121,7 +121,7 @@ public class Adapter_notes extends RecyclerView.Adapter<Adapter_notes.ViewHolder
             String input = password.getText().toString();
             if (input.equals(item.getPassword())) {
                 Intent i = new Intent(context, NotesEditActivity.class);
-                i.putExtra("noteID", item.getKey());
+                i.putExtra("note", item);
                 context.startActivity(i);
             } else {
                 Toast.makeText(context, "Incorrect Password", Toast.LENGTH_SHORT).show();
