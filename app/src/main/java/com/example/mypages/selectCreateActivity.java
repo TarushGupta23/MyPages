@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.mypages.calculator.CalculatorMainActivity;
+import com.example.mypages.dictionary.DictionaryMainActivity;
 import com.example.mypages.notes.NotesMainActivity;
 import com.example.mypages.selectCreateRes.Adapter_selectCreate;
 import com.example.mypages.selectCreateRes.Model_selectCreate;
@@ -50,7 +51,7 @@ public class selectCreateActivity extends AppCompatActivity {
         tables = new Model_selectCreate("Table", R.drawable.table_icon);
         lineGraphs = new Model_selectCreate("Line Graph", R.drawable.line_chart_icon);
         tallycounter = new Model_selectCreate("Tally Counter", R.drawable.tallycounter_icon, tallyCounter_MainActivity.class);
-        dictionary = new Model_selectCreate("Dictionary", R.drawable.dictionary_icon);
+        dictionary = new Model_selectCreate("Dictionary", R.drawable.dictionary_icon, DictionaryMainActivity.class);
         flowChart = new Model_selectCreate("Flow Chart", R.drawable.flow_chart_icon);
         calculator = new Model_selectCreate("Calculator", R.drawable.calculator_icon, CalculatorMainActivity.class);
         ppt = new Model_selectCreate("PPT", R.drawable.ppt_icon);
