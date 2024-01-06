@@ -12,6 +12,7 @@ import android.view.View;
 import com.example.mypages.calculator.CalculatorMainActivity;
 import com.example.mypages.dictionary.DictionaryMainActivity;
 import com.example.mypages.notes.NotesMainActivity;
+import com.example.mypages.pieChart.PieChartsMainActivity;
 import com.example.mypages.selectCreateRes.Adapter_selectCreate;
 import com.example.mypages.selectCreateRes.Model_selectCreate;
 import com.example.mypages.tallycounter.tallyCounter_MainActivity;
@@ -45,7 +46,7 @@ public class selectCreateActivity extends AppCompatActivity {
         Model_selectCreate todoList, notes, pieChart, barGraph, simpleLists, tables, lineGraphs, tallycounter, dictionary, flowChart, ppt, calculator, physics, paint;
         todoList = new Model_selectCreate("Todo List", R.drawable.todo_list_icon, TodoListMainActivity.class);
         notes = new Model_selectCreate("Notes", R.drawable.notes_icon, NotesMainActivity.class);
-        pieChart = new Model_selectCreate("Pie Chart", R.drawable.pie_chart_icon);
+        pieChart = new Model_selectCreate("Pie Chart", R.drawable.pie_chart_icon, PieChartsMainActivity.class);
         barGraph = new Model_selectCreate("Bar Graph", R.drawable.bar_graph_icon);
         simpleLists = new Model_selectCreate("List", R.drawable.list_icon);
         tables = new Model_selectCreate("Table", R.drawable.table_icon);
