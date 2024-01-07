@@ -113,10 +113,6 @@ public class PieChartsMainActivity extends AppCompatActivity {
                 newChart.setData(new HashMap<>());
                 newChart.setChartType(ModelChart.PIE);
                 newChart.setKey(newSlot.getKey());
-                newChart.getData().put("Maths", 99.2);
-                newChart.getData().put("Eng", 99.2);
-                newChart.getData().put("Hindi", 99.2);
-
                 newSlot.setValue(newChart);
                 alertDialog.dismiss();
             }

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="4dp"
+    android:background="@color/deepBlue3"
+    android:gravity="center">
+
+    <EditText
+        android:id="@+id/chartDataEditDialogCard_fieldName"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="5dp"
+        android:backgroundTint="@color/buttonBlue"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="text"
+        android:textColor="@color/ice"
+        android:textColorHint="@color/deepBlue" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=":"
+        android:textColor="@color/ice"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/chartDataEditDialogCard_fieldValue"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="5dp"
+        android:backgroundTint="@color/buttonBlue"
+        android:ems="10"
+        android:hint="Value"
+        android:inputType="numberDecimal"
+        android:textColor="@color/ice"
+        android:textColorHint="@color/deepBlue" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/chartDataEditDialogCard_confirmBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="3dp"
+        app:cardBackgroundColor="@color/mint"
+        app:cardCornerRadius="20dp">
+
+        <TextView
+            android:id="@+id/textView301"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:paddingHorizontal="2dp"
+            android:text="Ok"
+            android:textColor="@color/deepBlue" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/chartDataEditDialogCard_deleteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="3dp"
+        app:cardBackgroundColor="@color/coral"
+        app:cardCornerRadius="20dp">
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="Del"
+            android:textColor="@color/deepBlue" />
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

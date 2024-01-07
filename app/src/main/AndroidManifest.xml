@@ -15,8 +15,15 @@
         android:theme="@style/Theme.MyPages"
         tools:targetApi="31">
         <activity
-            android:name=".pieChart.PieChartsEditActivity"
+            android:name=".chartsRes.ChartsEditActivity"
             android:exported="false" />
+        <activity
+            android:name=".chartsRes.ChartsViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pieChart.PieChartsEditActivity"
+            android:exported="false"
+            android:theme="@style/actionBarTheme" />
         <activity
             android:name=".pieChart.PieChartsMainActivity"
             android:exported="false"
