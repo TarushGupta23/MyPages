@@ -40,9 +40,12 @@ public class Adapter_selectCreate extends RecyclerView.Adapter<Adapter_selectCre
         holder.textView.setText(model.getFieldName());
         holder.cardView.setOnClickListener(view -> {
 
-            if (modelList.get(position).getTargetActivity() != null) {
+            if (model.getTargetActivity() != null) {
                 Intent i;
-                i = new Intent(context, modelList.get(position).getTargetActivity());
+                i = new Intent(context, model.getTargetActivity());
+                if (!model.getIntentData().equals("")) {
+                    i.putExtra("selectCreateData", model.getIntentData());
+                }
                 context.startActivity(i);
             } else {
                 Toast.makeText(context, model.getFieldName() + " was clicked", Toast.LENGTH_SHORT).show();

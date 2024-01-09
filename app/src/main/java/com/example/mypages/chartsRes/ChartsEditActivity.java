@@ -40,8 +40,9 @@ public class ChartsEditActivity extends AppCompatActivity {
         Intent i = getIntent();
         ModelChart chart = (ModelChart) i.getSerializableExtra("chart");
 
+        String path = ModelChart.getChartPath(chart);
         auth = FirebaseAuth.getInstance();
-        reference = FirebaseDatabase.getInstance().getReference("Users").child(auth.getUid()).child("pieChart_folder").child(chart.getKey());
+        reference = FirebaseDatabase.getInstance().getReference("Users").child(auth.getUid()).child(path).child(chart.getKey());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new ChartEditDialogRecyclerView(reference, this));
@@ -52,6 +53,10 @@ public class ChartsEditActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please enter card title", Toast.LENGTH_SHORT).show();
             } else {
                 reference.child("name").setValue(title.getText().toString());
+//                Intent intent = new Intent(this, ChartsViewActivity.class);
+//                intent.putExtra("chartPath", path);
+//                intent.putExtra("chartId", chart.getKey());
+//                startActivity(intent);
                 finish();
             }
         });
@@ -61,6 +66,12 @@ public class ChartsEditActivity extends AppCompatActivity {
             recyclerView.setAdapter(new ChartEditDialogRecyclerView(reference, this));
         });
 
-        cancel.setOnClickListener(view -> { finish(); });
+        cancel.setOnClickListener(view -> {
+//            Intent intent = new Intent(this, ChartsViewActivity.class);
+//            intent.putExtra("chartPath", path);
+//            intent.putExtra("chartId", chart.getKey());
+//            startActivity(intent);
+            finish();
+        });
     }
 }

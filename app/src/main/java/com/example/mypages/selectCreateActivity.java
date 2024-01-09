@@ -10,9 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.mypages.calculator.CalculatorMainActivity;
+import com.example.mypages.chartsRes.ChartsMainActivity;
 import com.example.mypages.dictionary.DictionaryMainActivity;
 import com.example.mypages.notes.NotesMainActivity;
-import com.example.mypages.pieChart.PieChartsMainActivity;
 import com.example.mypages.selectCreateRes.Adapter_selectCreate;
 import com.example.mypages.selectCreateRes.Model_selectCreate;
 import com.example.mypages.tallycounter.tallyCounter_MainActivity;
@@ -46,12 +46,11 @@ public class selectCreateActivity extends AppCompatActivity {
         Model_selectCreate todoList, notes, pieChart, barGraph, simpleLists, tables, lineGraphs, tallycounter, dictionary, flowChart, ppt, calculator, physics, paint;
         todoList = new Model_selectCreate("Todo List", R.drawable.todo_list_icon, TodoListMainActivity.class);
         notes = new Model_selectCreate("Notes", R.drawable.notes_icon, NotesMainActivity.class);
-//        pieChart = new Model_selectCreate("Pie Chart", R.drawable.pie_chart_icon, PieChartsMainActivity.class);
-        pieChart = new Model_selectCreate("Pie Chart", R.drawable.pie_chart_icon, PieChartsMainActivity.class);
-        barGraph = new Model_selectCreate("Bar Graph", R.drawable.bar_graph_icon);
+        pieChart = new Model_selectCreate("Pie Chart", R.drawable.pie_chart_icon, ChartsMainActivity.class, "pieChart_folder");
+        barGraph = new Model_selectCreate("Bar Graph", R.drawable.bar_graph_icon, ChartsMainActivity.class, "barChart_folder");
         simpleLists = new Model_selectCreate("List", R.drawable.list_icon);
         tables = new Model_selectCreate("Table", R.drawable.table_icon);
-        lineGraphs = new Model_selectCreate("Line Graph", R.drawable.line_chart_icon);
+//        lineGraphs = new Model_selectCreate("Line Graph", R.drawable.line_chart_icon, ChartsMainActivity.class, "lineChart_folder");
         tallycounter = new Model_selectCreate("Tally Counter", R.drawable.tallycounter_icon, tallyCounter_MainActivity.class);
         dictionary = new Model_selectCreate("Dictionary", R.drawable.dictionary_icon, DictionaryMainActivity.class);
         flowChart = new Model_selectCreate("Flow Chart", R.drawable.flow_chart_icon);
@@ -71,7 +70,7 @@ public class selectCreateActivity extends AppCompatActivity {
         arrayList.add(flowChart);
 
         arrayList.add(barGraph);
-        arrayList.add(lineGraphs);
+//        arrayList.add(lineGraphs);
 
         arrayList.add(pieChart);
         arrayList.add(tallycounter);

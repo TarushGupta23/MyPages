@@ -22,4 +22,14 @@ public class ModelChart implements Serializable{
     public void setKey(String key) { this.key = key; }
     public void setData(Map<String, Double> data) { this.data = data; }
     public void setName(String name) { this.name = name; }
+
+    public static String getChartPath(ModelChart chart) {
+        if (chart.getChartType() == ModelChart.PIE) {
+            return "pieChart_folder";
+        } else if (chart.getChartType() == ModelChart.LINE) {
+            return "lineChart_folder";
+        } else {
+            return "barChart_folder";
+        }
+    }
 }

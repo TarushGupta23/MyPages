@@ -6,18 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mypages.R;
-import com.example.mypages.pieChart.PieChartsEditActivity;
-import com.example.mypages.selectCreateActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ChartNameAdapter extends RecyclerView.Adapter<ChartNameAdapter.ChartViewHolder> {
     private ArrayList<ModelChart> charts;
@@ -58,18 +54,13 @@ public class ChartNameAdapter extends RecyclerView.Adapter<ChartNameAdapter.Char
         void bind(ModelChart chartItem, Context context) {
             chartName.setText(chartItem.getName());
             chartBody.setOnClickListener(view -> {
-                Intent intent = new Intent(context, getChartActivity(chartItem));
+                Intent intent = new Intent(context, ChartsViewActivity.class);
+                intent.putExtra("chartPath", ModelChart.getChartPath(chartItem));
                 intent.putExtra("chartId", chartItem.getKey());
                 context.startActivity(intent);
             });
         }
 
-        public Class getChartActivity(ModelChart chart) {
-            if (chart.getChartType() == ModelChart.PIE) {
-                return PieChartsEditActivity.class;
-            } else {
-                return selectCreateActivity.class;
-            }
-        }
     }
+
 }

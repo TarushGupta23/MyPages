@@ -4,18 +4,22 @@ import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Model_selectCreate {
-    private String fieldName;
+    private final String fieldName;
+    private String intentData = "";
     @DrawableRes
-    private int id;
-    private Class targetActivity;
+    private final int id;
+    private final Class targetActivity;
 
     public String getFieldName() {
         return fieldName;
     }
-
+    public String getIntentData() {
+        return intentData;
+    }
     public int getId() {
         return id;
     }
+
 
     public Class getTargetActivity() {
         return targetActivity;
@@ -25,6 +29,12 @@ public class Model_selectCreate {
         this.fieldName = name;
         this.id = id;
         this.targetActivity = activity;
+    }
+    public Model_selectCreate(String name, @DrawableRes int id, Class activity, String intentData) {
+        this.fieldName = name;
+        this.id = id;
+        this.targetActivity = activity;
+        this.intentData = intentData;
     }
     public Model_selectCreate(String name, @DrawableRes int id) {
         this.fieldName = name;

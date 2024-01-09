@@ -1,4 +1,4 @@
-package com.example.mypages.pieChart;
+package com.example.mypages.chartsRes;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,8 +17,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.mypages.R;
-import com.example.mypages.chartsRes.ChartNameAdapter;
-import com.example.mypages.chartsRes.ModelChart;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,25 +27,31 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
-public class PieChartsMainActivity extends AppCompatActivity {
+public class ChartsMainActivity extends AppCompatActivity {
     ArrayList<ModelChart> chartList;
     RecyclerView recyclerView;
     FirebaseAuth auth;
     DatabaseReference databaseReference;
     ChartNameAdapter adapter;
+    String path;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pie_charts_main);
+        setContentView(R.layout.activity_charts_main);
+
+        Intent i = getIntent();
+
+        path = i.getStringExtra("selectCreateData");
 
         auth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(auth.getUid()).child("pieChart_folder");
-        recyclerView = findViewById(R.id.piechartMain_recyclerView);
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(auth.getUid()).child(path);
+
+        recyclerView = findViewById(R.id.chartsMain_recyclerView);
         chartList = new ArrayList<>();
         adapter = new ChartNameAdapter(chartList, this);
-//        TODO: check orientation
+// TODO: ORIENTATION
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
@@ -111,7 +116,15 @@ public class PieChartsMainActivity extends AppCompatActivity {
                 ModelChart newChart = new ModelChart();
                 newChart.setName(chartName);
                 newChart.setData(new HashMap<>());
-                newChart.setChartType(ModelChart.PIE);
+
+                if (path.equals("pieChart_folder")) {
+                    newChart.setChartType(ModelChart.PIE);
+                } else if (path.equals("barChart_folder")) {
+                    newChart.setChartType(ModelChart.BAR);
+                } else {
+                    newChart.setChartType(ModelChart.LINE);
+                }
+
                 newChart.setKey(newSlot.getKey());
                 newSlot.setValue(newChart);
                 alertDialog.dismiss();
