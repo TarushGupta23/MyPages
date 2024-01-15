@@ -1,5 +1,5 @@
 # MyPages Application
-<img align="right" alt="Loading Screenshots..." width="5%" height="5%" src="https://raw.githubusercontent.com/TarushGupta23/storage/main/myPagesIcon.png?token=GHSAT0AAAAAACIOGP7B7JFUSRBAPB6XCDMAZMTBXZQ" align="right">
+<img align="right" alt="Loading Screenshots..." width="5%" height="5%" src="https://github.com/TarushGupta23/storage/blob/main/myPagesIcon.png" align="right">
 
 ## Overview
 
