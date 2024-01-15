@@ -15,6 +15,7 @@ import com.example.mypages.dictionary.DictionaryMainActivity;
 import com.example.mypages.notes.NotesMainActivity;
 import com.example.mypages.selectCreateRes.Adapter_selectCreate;
 import com.example.mypages.selectCreateRes.Model_selectCreate;
+import com.example.mypages.simpleList.SimpleListViewActivity;
 import com.example.mypages.tallycounter.tallyCounter_MainActivity;
 import com.example.mypages.todoList.TodoListMainActivity;
 
@@ -48,7 +49,7 @@ public class selectCreateActivity extends AppCompatActivity {
         notes = new Model_selectCreate("Notes", R.drawable.notes_icon, NotesMainActivity.class);
         pieChart = new Model_selectCreate("Pie Chart", R.drawable.pie_chart_icon, ChartsMainActivity.class, "pieChart_folder");
         barGraph = new Model_selectCreate("Bar Graph", R.drawable.bar_graph_icon, ChartsMainActivity.class, "barChart_folder");
-        simpleLists = new Model_selectCreate("List", R.drawable.list_icon);
+        simpleLists = new Model_selectCreate("List", R.drawable.list_icon, SimpleListViewActivity.class);
         tables = new Model_selectCreate("Table", R.drawable.table_icon);
 //        lineGraphs = new Model_selectCreate("Line Graph", R.drawable.line_chart_icon, ChartsMainActivity.class, "lineChart_folder");
         tallycounter = new Model_selectCreate("Tally Counter", R.drawable.tallycounter_icon, tallyCounter_MainActivity.class);

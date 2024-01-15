@@ -15,18 +15,27 @@
         android:theme="@style/Theme.MyPages"
         tools:targetApi="31">
         <activity
-            android:name=".chartsRes.ChartsMainActivity"
-            android:theme="@style/actionBarTheme"
-            android:parentActivityName=".selectCreateActivity"
+            android:name=".simpleList.SimpleListEditActivity"
             android:exported="false" />
+        <activity
+            android:name=".simpleList.SimpleListViewActivity"
+            android:exported="false"
+            android:parentActivityName=".selectCreateActivity"
+            android:theme="@style/actionBarTheme" />
+        <activity
+            android:name=".chartsRes.ChartsMainActivity"
+            android:exported="false"
+            android:parentActivityName=".selectCreateActivity"
+            android:theme="@style/actionBarTheme" />
         <activity
             android:name=".chartsRes.ChartsEditActivity"
-            android:theme="@style/actionBarTheme"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/actionBarTheme" />
         <activity
             android:name=".chartsRes.ChartsViewActivity"
-            android:theme="@style/actionBarTheme"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".selectCreateActivity"
+            android:theme="@style/actionBarTheme" />
         <activity
             android:name=".dictionary.DictionaryMainActivity"
             android:exported="false" />

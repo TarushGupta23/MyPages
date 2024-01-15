@@ -11,16 +11,18 @@
         android:id="@+id/chartEditView_title"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="TextView"
+        android:maxLines="1"
         android:textAlignment="center"
         android:textColor="@color/ice"
         android:textSize="34sp"
+        android:ellipsize="end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.anychart.AnyChartView
         android:id="@+id/anyChartView"
+        android:layout_marginTop="5dp"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/deepBlue"

@@ -1,0 +1,11 @@
+<!-- res/drawable/vertical_line_left.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:width="2dp"
+        android:gravity="left"
+        android:left="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#B8860B"></solid>
+        </shape>
+    </item>
+</layer-list>

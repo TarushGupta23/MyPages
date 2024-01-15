@@ -59,6 +59,8 @@ public class ChartNameAdapter extends RecyclerView.Adapter<ChartNameAdapter.Char
                 intent.putExtra("chartId", chartItem.getKey());
                 context.startActivity(intent);
             });
+
+//            TODO: long press click listener to delete chart
         }
 
     }

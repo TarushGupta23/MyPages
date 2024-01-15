@@ -53,10 +53,11 @@ public class ChartsEditActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please enter card title", Toast.LENGTH_SHORT).show();
             } else {
                 reference.child("name").setValue(title.getText().toString());
-//                Intent intent = new Intent(this, ChartsViewActivity.class);
-//                intent.putExtra("chartPath", path);
-//                intent.putExtra("chartId", chart.getKey());
-//                startActivity(intent);
+//                TODO - try restarting charts activity to refresh
+                Intent intent = new Intent(this, ChartsViewActivity.class);
+                intent.putExtra("chartPath", path);
+                intent.putExtra("chartId", chart.getKey());
+                startActivity(intent);
                 finish();
             }
         });
@@ -67,10 +68,10 @@ public class ChartsEditActivity extends AppCompatActivity {
         });
 
         cancel.setOnClickListener(view -> {
-//            Intent intent = new Intent(this, ChartsViewActivity.class);
-//            intent.putExtra("chartPath", path);
-//            intent.putExtra("chartId", chart.getKey());
-//            startActivity(intent);
+            Intent intent = new Intent(this, ChartsViewActivity.class);
+            intent.putExtra("chartPath", path);
+            intent.putExtra("chartId", chart.getKey());
+            startActivity(intent);
             finish();
         });
     }

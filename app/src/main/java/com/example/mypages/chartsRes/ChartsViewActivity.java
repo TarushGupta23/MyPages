@@ -120,31 +120,6 @@ public class ChartsViewActivity extends AppCompatActivity {
     }
 
     void showBarChart() {
-        // update ho ra h but history bhi show ho rhi h
-//        final Cartesian[] cartesian = {AnyChart.column()};
-//        final Column[] column = {cartesian[0].column(data)};
-//
-//        column[0].tooltip()
-//                .position(Position.CENTER_BOTTOM)
-//                .anchor(Anchor.CENTER_BOTTOM)
-//                .offsetX(0d)
-//                .offsetY(5d)
-//                .format("{%Value}{groupsSeparator: }")
-//                .titleFormat("{%X}");
-//
-//        cartesian[0].animation(true);
-//        cartesian[0].title("");
-//
-//        cartesian[0].yScale().minimum(0d);
-//
-//        cartesian[0].yAxis(0).labels().format("{%Value}{groupsSeparator: }");
-//
-//        cartesian[0].tooltip().positionMode(TooltipPositionMode.POINT);
-//        cartesian[0].interactivity().hoverMode(HoverMode.BY_X);
-//
-//        cartesian[0].xAxis(0).title("Field");
-//        cartesian[0].yAxis(0).title("Value");
-
         final Cartesian cartesian = AnyChart.column();
         final Column column = cartesian.column(data);
 
@@ -223,6 +198,7 @@ public class ChartsViewActivity extends AppCompatActivity {
     }
 
     void showLineChart() {
+//        TODO - line chart
 //        final Cartesian cartesian = AnyChart.line();
 //        cartesian.animation(true);
 //        cartesian.padding(10d, 20d, 5d, 20d);
@@ -235,6 +211,5 @@ public class ChartsViewActivity extends AppCompatActivity {
 //        cartesian.tooltip().positionMode(TooltipPositionMode.POINT);
 //        Set set = Set.instantiate();
 //        set.data(data);
-//
     }
 }
