@@ -63,6 +63,7 @@ public class SimpleListViewActivity extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                itemList.clear();
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
                     String key = dataSnapshot.getKey();
                     String name = (String) dataSnapshot.child("listTitle").getValue();

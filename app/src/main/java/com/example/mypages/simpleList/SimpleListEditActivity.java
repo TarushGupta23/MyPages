@@ -46,7 +46,7 @@ public class SimpleListEditActivity extends AppCompatActivity {
         String key = getIntent().getStringExtra("listId");
 
         auth = FirebaseAuth.getInstance();
-        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(auth.getUid()).child("simpleList_folder").child(key);
+        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(auth.getUid()).child("simpleList_folder").child(key).child("data");
 
         linearLayout = findViewById(R.id.simpleList_linearLayout);
         currentLayout = linearLayout;
@@ -56,6 +56,7 @@ public class SimpleListEditActivity extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
                 Object snapshotValue = snapshot.getValue();
                 if (snapshotValue instanceof List) {
                     list = (List<Object>) snapshotValue;
@@ -86,6 +87,7 @@ public class SimpleListEditActivity extends AppCompatActivity {
     }
 
     void changeEditableLayout(LinearLayout layout) {
+//        currentLayout.setForeground(getResources().getDrawable(R.drawable.simple_list_intend_line_inactive, this.getTheme()));
         currentLayout.setForeground(null);
         currentLayout = layout;
         currentLayout.setForeground(getResources().getDrawable(R.drawable.simple_list_intend_line, this.getTheme()));
@@ -99,7 +101,7 @@ public class SimpleListEditActivity extends AppCompatActivity {
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(10, 4, 0, 0);
         textView.setLayoutParams(layoutParams);
-        textView.setPaddingRelative(12, 0,0,0);
+        textView.setPaddingRelative(18, 0,0,0);
         textView.setForeground(getResources().getDrawable(R.drawable.simple_list_list_item, this.getTheme()));
         textView.setTextColor(getResources().getColor(R.color.ice, this.getTheme()));
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
@@ -116,6 +118,7 @@ public class SimpleListEditActivity extends AppCompatActivity {
         innerLinearLayout.setLayoutParams(layoutParams);
         innerLinearLayout.setOrientation(LinearLayout.VERTICAL);
         innerLinearLayout.setOnClickListener(view -> changeEditableLayout(innerLinearLayout));
+//        innerLinearLayout.setForeground(getResources().getDrawable(R.drawable.simple_list_intend_line_inactive, getTheme()));
         return innerLinearLayout;
     }
 
@@ -170,5 +173,26 @@ public class SimpleListEditActivity extends AppCompatActivity {
         });
 
         alertDialog.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        list = generateListFromLayout(linearLayout);
+        reference.setValue(list);
+        super.onBackPressed();
+    }
+
+    List<Object> generateListFromLayout(LinearLayout layout) {
+        List<Object> newList = new ArrayList<>();
+        for (int i=0; i<layout.getChildCount(); i++) {
+            View child = layout.getChildAt(i);
+            if (child instanceof TextView) {
+                TextView textView = (TextView) child;
+                newList.add(textView.getText().toString());
+            } else if (child instanceof LinearLayout) {
+                newList.add(generateListFromLayout((LinearLayout) child));
+            }
+        }
+        return newList;
     }
 }
