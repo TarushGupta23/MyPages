@@ -3,13 +3,23 @@ package com.example.mypages.simpleList;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mypages.R;
+import com.example.mypages.chartsRes.ModelChart;
+import com.example.mypages.notes.Model_Note;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class SimpleListEditActivity extends AppCompatActivity {
@@ -39,7 +50,9 @@ public class SimpleListEditActivity extends AppCompatActivity {
 
         linearLayout = findViewById(R.id.simpleList_linearLayout);
         currentLayout = linearLayout;
+        linearLayout.setOnClickListener(view -> changeEditableLayout(linearLayout));
 
+        changeEditableLayout(linearLayout);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -47,41 +60,25 @@ public class SimpleListEditActivity extends AppCompatActivity {
                 if (snapshotValue instanceof List) {
                     list = (List<Object>) snapshotValue;
                 }
-                if (list != null) {
-                    createList(linearLayout, list);
+                if (list == null) {
+                    list = new ArrayList<>();
                 }
+                createList(linearLayout, list);
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
+            public void onCancelled(@NonNull DatabaseError error) {}
         });
     }
 
     void createList(LinearLayout layout, List<Object> list) {
-        layout.setOnClickListener(view -> {
-            changeEditableLayout(layout);
-        });
         for (Object listItem : list) {
             if (listItem instanceof String) {
                 String data = (String) listItem;
-                TextView textView = new TextView(this);
-                textView.setText(data);
-                textView.setLayoutParams(new ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT));
-                textView.setTextColor(getResources().getColor(R.color.ice));
-                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+                TextView textView = createTextView(data);
                 layout.addView(textView);
             } else if (listItem instanceof List) {
-                LinearLayout innerLinearLayout = new LinearLayout(this);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT);
-                layoutParams.setMargins(0, 0, 10, 0);
-                innerLinearLayout.setLayoutParams(layoutParams);
-                innerLinearLayout.setOrientation(LinearLayout.VERTICAL);
+                LinearLayout innerLinearLayout = createLinearLayout();
                 layout.addView(innerLinearLayout);
                 createList(innerLinearLayout, (List<Object>) listItem);
             }
@@ -91,8 +88,87 @@ public class SimpleListEditActivity extends AppCompatActivity {
     void changeEditableLayout(LinearLayout layout) {
         currentLayout.setForeground(null);
         currentLayout = layout;
-        currentLayout.setForeground(getResources().getDrawable(R.drawable.simple_list_intend_line));
+        currentLayout.setForeground(getResources().getDrawable(R.drawable.simple_list_intend_line, this.getTheme()));
     }
 
+    TextView createTextView(String text) {
+        TextView textView = new TextView(this);
+        textView.setText(text);
+        ViewGroup.MarginLayoutParams layoutParams = new ViewGroup.MarginLayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(10, 4, 0, 0);
+        textView.setLayoutParams(layoutParams);
+        textView.setPaddingRelative(12, 0,0,0);
+        textView.setForeground(getResources().getDrawable(R.drawable.simple_list_list_item, this.getTheme()));
+        textView.setTextColor(getResources().getColor(R.color.ice, this.getTheme()));
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+        // TODO: delete or edit tv.
+        return textView;
+    }
 
+    LinearLayout createLinearLayout() {
+        LinearLayout innerLinearLayout = new LinearLayout(this);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(55, 0, 0, 0);
+        innerLinearLayout.setLayoutParams(layoutParams);
+        innerLinearLayout.setOrientation(LinearLayout.VERTICAL);
+        innerLinearLayout.setOnClickListener(view -> changeEditableLayout(innerLinearLayout));
+        return innerLinearLayout;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.actionbar_list_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.menu_action_add) {
+            showAddListItemDialog();
+            return true;
+        } else if (id == R.id.menu_action_addList) {
+            LinearLayout innerLinearLayout = createLinearLayout();
+            currentLayout.addView(innerLinearLayout);
+            Toast.makeText(this, "Sub list created", Toast.LENGTH_SHORT).show();
+            changeEditableLayout(innerLinearLayout);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void showAddListItemDialog() {
+        android.app.AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View dialogView = inflater.inflate(R.layout.text_input, null);
+
+        EditText input = dialogView.findViewById(R.id.dialogueTextInput_editText);
+        Button btnOk = dialogView.findViewById(R.id.dialogueTextInput_buttonOk);
+        Button btnCancel = dialogView.findViewById(R.id.dialogueTextInput_buttonCancel);
+
+        dialogBuilder.setView(dialogView);
+        AlertDialog alertDialog = dialogBuilder.create();
+
+        btnCancel.setOnClickListener(view -> {
+            alertDialog.dismiss();
+        });
+
+        btnOk.setOnClickListener(view -> {
+            String value = input.getText().toString();
+            if (value.equals("")) {
+                Toast.makeText(this, "Please enter list item", Toast.LENGTH_SHORT).show();
+            } else {
+                TextView textView = createTextView(value);
+                currentLayout.addView(textView);
+                alertDialog.dismiss();
+            }
+        });
+
+        alertDialog.show();
+    }
 }
