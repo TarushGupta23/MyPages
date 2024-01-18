@@ -55,7 +55,10 @@ Unleash your creativity with a simple painting tool.
 
 ## Screenshots 📸
 
-- no screenshots yet -
+| Different Features | Todo List | Counter | Simple List | Others |
+|---------------|---------------|---------------|---------------|---------------|
+| ![Video 1](https://github.com/TarushGupta23/storage/blob/main/MyPages/vid1-ezgif.com-video-to-gif-converter.gif) | ![Video 2](https://github.com/TarushGupta23/storage/blob/main/MyPages/vid4-ezgif.com-video-to-gif-converter.gif) | ![Video 3](https://github.com/TarushGupta23/storage/blob/main/MyPages/vid3-ezgif.com-video-to-gif-converter.gif) | ![Video 4](https://github.com/TarushGupta23/storage/blob/main/MyPages/vid2-ezgif.com-video-to-gif-converter.gif) | ![Video 5](https://github.com/TarushGupta23/storage/blob/main/MyPages/ezgif.com-resize.gif) |
+
 
 ## Structure
 
