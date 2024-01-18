@@ -54,6 +54,7 @@ Unleash your creativity with a simple painting tool.
 4. Explore and enjoy the various features MyPages has to offer!
 
 ## Screenshots 📸
+_(this may take time)_
 
 | Different Features | Todo List | Counter | Simple List | Others |
 |---------------|---------------|---------------|---------------|---------------|
