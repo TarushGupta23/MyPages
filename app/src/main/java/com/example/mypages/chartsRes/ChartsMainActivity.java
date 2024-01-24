@@ -2,11 +2,13 @@ package com.example.mypages.chartsRes;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -50,9 +52,12 @@ public class ChartsMainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.chartsMain_recyclerView);
         chartList = new ArrayList<>();
         adapter = new ChartNameAdapter(chartList, this);
-// TODO: ORIENTATION
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        } else {
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        }
         recyclerView.setAdapter(adapter);
 
         databaseReference.addValueEventListener(new ValueEventListener() {

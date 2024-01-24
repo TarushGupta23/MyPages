@@ -8,7 +8,6 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 

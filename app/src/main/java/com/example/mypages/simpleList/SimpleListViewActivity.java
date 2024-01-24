@@ -2,11 +2,13 @@ package com.example.mypages.simpleList;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -57,7 +59,11 @@ public class SimpleListViewActivity extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference().child("Users").child(auth.getUid()).child("simpleList_folder");
 
         recyclerView.setAdapter(adapter);
-        // TODO : orientation
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        } else {
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        }
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         reference.addValueEventListener(new ValueEventListener() {

@@ -18,8 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mypages.R;
-import com.example.mypages.chartsRes.ModelChart;
-import com.example.mypages.notes.Model_Note;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,7 +26,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class SimpleListEditActivity extends AppCompatActivity {
@@ -78,6 +75,10 @@ public class SimpleListEditActivity extends AppCompatActivity {
                 String data = (String) listItem;
                 TextView textView = createTextView(data);
                 layout.addView(textView);
+                textView.setOnLongClickListener(view -> {
+                    showTextEditDialog(textView, layout);
+                    return true;
+                });
             } else if (listItem instanceof List) {
                 LinearLayout innerLinearLayout = createLinearLayout();
                 layout.addView(innerLinearLayout);
@@ -105,7 +106,6 @@ public class SimpleListEditActivity extends AppCompatActivity {
         textView.setForeground(getResources().getDrawable(R.drawable.simple_list_list_item, this.getTheme()));
         textView.setTextColor(getResources().getColor(R.color.ice, this.getTheme()));
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
-        // TODO: delete or edit tv.
         return textView;
     }
 
@@ -146,7 +146,7 @@ public class SimpleListEditActivity extends AppCompatActivity {
     }
 
     public void showAddListItemDialog() {
-        android.app.AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = LayoutInflater.from(this);
         View dialogView = inflater.inflate(R.layout.text_input, null);
 
@@ -168,6 +168,10 @@ public class SimpleListEditActivity extends AppCompatActivity {
             } else {
                 TextView textView = createTextView(value);
                 currentLayout.addView(textView);
+                textView.setOnLongClickListener(v -> {
+                    showTextEditDialog(textView, currentLayout);
+                    return false;
+                });
                 alertDialog.dismiss();
             }
         });
@@ -194,5 +198,33 @@ public class SimpleListEditActivity extends AppCompatActivity {
             }
         }
         return newList;
+    }
+
+    public void showTextEditDialog(TextView textView, LinearLayout parentLayout) {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View dialogView = inflater.inflate(R.layout.text_input, null);
+
+        EditText input = dialogView.findViewById(R.id.dialogueTextInput_editText);
+        Button btnOk = dialogView.findViewById(R.id.dialogueTextInput_buttonOk);
+        Button btnCancel = dialogView.findViewById(R.id.dialogueTextInput_buttonCancel);
+
+        dialogBuilder.setView(dialogView);
+        AlertDialog alertDialog = dialogBuilder.create();
+
+        input.setText(textView.getText().toString());
+
+        btnCancel.setText("Delete");
+        btnOk.setText("Confirm");
+        btnCancel.setOnClickListener(view -> {
+            parentLayout.removeView(textView);
+            alertDialog.dismiss();
+        });
+        btnOk.setOnClickListener(view -> {
+            textView.setText(input.getText().toString());
+            alertDialog.dismiss();
+        });
+
+        alertDialog.show();
     }
 }
