@@ -59,8 +59,8 @@ public class LoginActivity extends AppCompatActivity{
         client = GoogleSignIn.getClient(this, options);
 
         googleIcon = findViewById(R.id.login_googleIcon);
-        facebookIcon = findViewById(R.id.login_facebookIcon);
-        facebookIcon.setImageResource(R.drawable.facebook_icon);
+//        facebookIcon = findViewById(R.id.login_facebookIcon);
+//        facebookIcon.setImageResource(R.drawable.facebook_icon);
         googleIcon.setImageResource(R.drawable.google_icon);
 
         createAccount = findViewById(R.id.login_createNewUser);
@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity{
         passwordError = findViewById(R.id.login_textViewError);
         userEmail = findViewById(R.id.login_userEmailInput);
         userPassword = findViewById(R.id.login_userpasswordInput);
-        facebookButton = findViewById(R.id.login_facebookButton);
+//        facebookButton = findViewById(R.id.login_facebookButton);
         googleButton = findViewById(R.id.login_googleButton);
         
         createAccount.setOnClickListener(view -> {
