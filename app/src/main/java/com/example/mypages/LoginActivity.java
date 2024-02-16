@@ -12,22 +12,29 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.android.gms.auth.api.Auth;
 import com.google.firebase.auth.GoogleAuthProvider;
+
+import java.util.Arrays;
 
 
 public class LoginActivity extends AppCompatActivity{
@@ -36,6 +43,7 @@ public class LoginActivity extends AppCompatActivity{
     TextView forgotPassword, passwordError;
     EditText userEmail, userPassword;
     CardView googleButton, facebookButton;
+    CallbackManager callbackManager;
 
     FirebaseAuth auth = FirebaseAuth.getInstance();
     FirebaseUser user = auth.getCurrentUser();
@@ -57,6 +65,28 @@ public class LoginActivity extends AppCompatActivity{
                 .requestEmail()
                 .build();
         client = GoogleSignIn.getClient(this, options);
+
+
+        callbackManager = CallbackManager.Factory.create();
+
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onError(@NonNull FacebookException e) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        handleFacebookAccessToken(loginResult.getAccessToken());
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        // App code
+                    }
+                });
 
         googleIcon = findViewById(R.id.login_googleIcon);
 //        facebookIcon = findViewById(R.id.login_facebookIcon);
@@ -125,6 +155,10 @@ public class LoginActivity extends AppCompatActivity{
             Intent i = client.getSignInIntent();
             startActivityForResult(i, 1234);
         });
+
+        facebookButton.setOnClickListener(view -> {
+
+        });
     }
 
 
@@ -190,5 +224,32 @@ public class LoginActivity extends AppCompatActivity{
                 throw new RuntimeException(e);
             }
         }
+
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void handleFacebookAccessToken(AccessToken token) {
+//        Log.d(TAG, "handleFacebookAccessToken:" + token);
+
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        auth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+//                            Log.d(TAG, "signInWithCredential:success");
+                            FirebaseUser user = auth.getCurrentUser();
+                            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(i);
+                            finish();
+                        } else {
+                            // If sign in fails, display a message to the user.
+//                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            Toast.makeText(LoginActivity.this, "Unable to authenticate", Toast.LENGTH_SHORT).show();
+//                            updateUI(null);
+                        }
+                    }
+                });
     }
 }
