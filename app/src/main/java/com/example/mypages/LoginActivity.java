@@ -156,9 +156,9 @@ public class LoginActivity extends AppCompatActivity{
             startActivityForResult(i, 1234);
         });
 
-        facebookButton.setOnClickListener(view -> {
-
-        });
+//        facebookButton.setOnClickListener(view -> {
+//
+//        });
     }
 
 
