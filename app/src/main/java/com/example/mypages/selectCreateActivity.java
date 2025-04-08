@@ -13,6 +13,7 @@ import com.example.mypages.calculator.CalculatorMainActivity;
 import com.example.mypages.chartsRes.ChartsMainActivity;
 import com.example.mypages.dictionary.DictionaryMainActivity;
 import com.example.mypages.notes.NotesMainActivity;
+import com.example.mypages.rssFeed.RssFeedActivity;
 import com.example.mypages.selectCreateRes.Adapter_selectCreate;
 import com.example.mypages.selectCreateRes.Model_selectCreate;
 import com.example.mypages.simpleList.SimpleListViewActivity;
@@ -44,7 +45,7 @@ public class selectCreateActivity extends AppCompatActivity {
 
         // hideShowActionBar();
 
-        Model_selectCreate todoList, notes, pieChart, barGraph, simpleLists, tables, lineGraphs, tallycounter, dictionary, flowChart, ppt, calculator, physics, paint;
+        Model_selectCreate todoList, notes, pieChart, barGraph, simpleLists, tables, lineGraphs, tallycounter, dictionary, flowChart, ppt, calculator, physics, paint, RssFeed;
         todoList = new Model_selectCreate("Todo List", R.drawable.todo_list_icon, TodoListMainActivity.class);
         notes = new Model_selectCreate("Notes", R.drawable.notes_icon, NotesMainActivity.class);
         pieChart = new Model_selectCreate("Pie Chart", R.drawable.pie_chart_icon, ChartsMainActivity.class, "pieChart_folder");
@@ -59,6 +60,8 @@ public class selectCreateActivity extends AppCompatActivity {
         ppt = new Model_selectCreate("PPT", R.drawable.ppt_icon);
         physics = new Model_selectCreate("Science", R.drawable.physics_icon);
         paint = new Model_selectCreate("Free Hand", R.drawable.paint_icon);
+
+        RssFeed = new Model_selectCreate("Rss Feed", R.drawable.paint_icon, RssFeedActivity.class);
 
         arrayList = new ArrayList<>();
         arrayList.add(todoList);
@@ -81,6 +84,8 @@ public class selectCreateActivity extends AppCompatActivity {
 
         arrayList.add(calculator);
         arrayList.add(dictionary);
+
+        arrayList.add(RssFeed);
 
         adapter = new Adapter_selectCreate(arrayList, this);
         recyclerView.setAdapter(adapter);

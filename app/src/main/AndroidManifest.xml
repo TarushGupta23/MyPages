@@ -16,9 +16,12 @@
         android:theme="@style/Theme.MyPages"
         tools:targetApi="31">
         <activity
-            android:name=".simpleList.SimpleListEditActivity"
-            android:theme="@style/actionBarTheme"
+            android:name=".rssFeed.RssFeedActivity"
             android:exported="false" />
+        <activity
+            android:name=".simpleList.SimpleListEditActivity"
+            android:exported="false"
+            android:theme="@style/actionBarTheme" />
         <activity
             android:name=".simpleList.SimpleListViewActivity"
             android:exported="false"
